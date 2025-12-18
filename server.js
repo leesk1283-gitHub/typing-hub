@@ -13,9 +13,9 @@ const io = new Server(server, {
 
 const PORT = process.env.PORT || 3000;
 
-// 1. 루트 접속 시 통합 메뉴 제공
+// 1. 루트 접속 시 GitHub Pages의 풍선 게임 페이지로 리다이렉트 (사용자 요청)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.redirect('https://leesk1283-github.github.io/typing-hub/balloon-typing-game/');
 });
 
 // 2. 타자 연습
