@@ -5,12 +5,12 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 Typing Hub는 웹 브라우저에서 즐길 수 있는 **타자 연습 서비스**와 **멀티플레이어 풍선 타자 게임**을 하나로 통합한 포털 사이트입니다. 깔끔하고 직관적인 UI를 통해 타자 실력을 향상시키고 전 세계 사용자들과 실시간 대결을 즐겨보세요!
-**바로가기**: https://leesk1283-github.github.io/typing-hub
+- **바로가기**: <a href="https://leesk1283-github.github.io/typing-hub" target="_blank" rel="noopener noreferrer">https://leesk1283-github.github.io/typing-hub</a>
 
 ## 🚀 주요 기능
 
 ### ⌨️ 타자 연습 (Typing Practice)
-- [https://leesk1283-github.github.io/typing-hub/](https://leesk1283-github.github.io/typing-hub/typing-practice/)
+- <a href="https://leesk1283-github.github.io/typing-hub/typing-practice" target="_blank" rel="noopener noreferrer">https://leesk1283-github.github.io/typing-hub/typing-practice</a>
 - **자리 연습**: 기본 자리, 윗 자리, 가운데 자리, 아랫 자리 연습
 - **낱말 연습**: 자주 쓰이는 단어 위주의 순발력 연습
 - **문장 연습**: 긴 문장을 통한 실전 타자 속도 측정
