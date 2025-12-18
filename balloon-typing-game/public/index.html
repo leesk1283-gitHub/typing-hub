@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/balloon-typing-game/"> <!-- Added base tag here -->
+    <title>풍선 터트리기 - 타자 게임</title>
+    <meta name="description" content="친구와 함께 풍선을 터트리며 타자 실력을 겨루세요!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/countdown.css">
+</head>
+
+<body>
+    <!-- Login Screen (Start Screen) -->
+    <div id="login-screen" class="screen active">
+        <div class="login-card">
+            <h1>🎈 풍선 타자 게임</h1>
+            <input type="text" id="nickname-input" class="login-input" placeholder="닉네임을 입력하세요" maxlength="8">
+            <button id="login-btn" class="btn btn-primary">입장하기</button>
+        </div>
+    </div>
+
+    <!-- 대기실 (Lobby) -->
+    <div id="lobby-screen" class="screen">
+        <div class="lobby-container">
+            <header class="lobby-header">
+                <h1 class="game-title">🎈 풍선 터트리기</h1>
+                <p class="game-subtitle">타자로 풍선을 터트려 승리하세요!</p>
+                <div class="game-instructions">
+                    <p>💡 <b>게임 규칙</b></p>
+                    <ul>
+                        <li>1글자 당 10점 (예: '사자' ➡ 20점, '아이스크림' ➡ 50점)</li>
+                        <li>풍선이 화면 위로 <b>완전히 사라지기 전</b>에 터트리세요!</li>
+                        <li>방장은 <b>대기방</b>에서 한글/영어 언어를 설정할 수 있습니다.</li>
+                    </ul>
+                </div>
+                <div class="user-info">
+                    <span class="user-badge" id="user-name-display">연결 중...</span>
+                </div>
+            </header>
+
+            <div class="lobby-content">
+                <div class="lobby-actions">
+                    <button id="create-room-btn" class="btn btn-primary btn-large">
+                        <span class="btn-icon">✨</span>
+                        방 만들기
+                    </button>
+                    <button id="quick-join-btn" class="btn btn-secondary btn-large">
+                        <span class="btn-icon">⚡</span>
+                        빠른 입장
+                    </button>
+                </div>
+
+                <div class="room-list-container">
+                    <!-- 배경 풍선 장식 -->
+                    <div class="bg-balloons">
+                        <div class="bg-balloon" style="--delay: 0s; --x: 10%;"></div>
+                        <div class="bg-balloon" style="--delay: 2s; --x: 25%;"></div>
+                        <div class="bg-balloon" style="--delay: 4s; --x: 40%;"></div>
+                        <div class="bg-balloon" style="--delay: 1s; --x: 55%;"></div>
+                        <div class="bg-balloon" style="--delay: 3s; --x: 70%;"></div>
+                        <div class="bg-balloon" style="--delay: 5s; --x: 85%;"></div>
+                    </div>
+
+                    <!-- Sounds -->
+                    <button id="sound-toggle" class="sound-btn">🔇</button>
+
+                    <h3>방 목록</h3>
+                    <div id="room-list" class="room-list">
+                        <!-- 방 목록 아이템들이 여기에 추가됨 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Waiting Room Screen -->
+    <div id="waiting-screen" class="screen">
+        <div class="glass-panel">
+            <div class="waiting-header">
+                <button id="leave-room-btn" class="btn btn-danger btn-small">나가기</button>
+                <div class="header-center">
+                    <h2>대기방</h2>
+
+                    <!-- Language Toggle (Host Only) -->
+                    <div id="language-settings" class="language-settings hidden">
+                        <span class="lang-label">언어 설정:</span>
+                        <div class="toggle-switch" id="lang-toggle-btn">
+                            <input type="checkbox" id="lang-checkbox">
+                            <label for="lang-checkbox" class="toggle-slider">
+                                <span class="toggle-option ko">한글</span>
+                                <span class="toggle-option en">ENG</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="players-container">
+                <div id="players-grid" class="user-grid">
+                    <!-- 8개의 플레이어 슬롯이 JS로 생성됨 -->
+                </div>
+            </div>
+
+            <div class="waiting-controls">
+                <button id="ready-btn" class="btn btn-secondary">준비하기</button>
+                <button id="start-btn" class="btn btn-primary hidden" disabled>게임 시작</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-container">
+            <header class="game-header">
+                <div class="score-board-container">
+                    <div id="score-board" class="score-grid">
+                        <!-- 8명 점수가 JS로 렌더링됨 -->
+                    </div>
+                </div>
+                <div class="timer-container">
+                    <div class="timer-icon">⏰</div>
+                    <div id="timer-display">30</div>
+                </div>
+            </header>
+
+            <div id="game-area" class="game-area">
+                <!-- Balloons rendering here -->
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="word-input" class="word-input" placeholder="단어를 입력하세요" autocomplete="off"
+                    spellcheck="false">
+                <div class="input-hint">엔터(Enter) 또는 스페이스바를 눌러 입력</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 결과 오버레이 -->
+    <div id="result-overlay" class="overlay hidden">
+        <div class="result-modal">
+            <div class="result-header">
+                <h2 id="result-title">게임 종료!</h2>
+            </div>
+
+            <div class="result-content">
+                <div class="result-player left" id="result-host">
+                    <div class="result-avatar">🎮</div>
+                    <div class="result-name">Player 1</div>
+                    <div class="result-score">0점</div>
+                </div>
+
+                <div class="result-vs">VS</div>
+
+                <div class="result-player right" id="result-guest">
+                    <div class="result-avatar">🎮</div>
+                    <div class="result-name">Player 2</div>
+                    <div class="result-score">0점</div>
+                </div>
+            </div>
+
+            <div class="result-winner" id="winner-display">
+                🏆 승자: <span id="winner-name"></span>
+            </div>
+
+            <div class="result-actions">
+                <button id="play-again-btn" class="btn btn-primary">다시하기</button>
+                <button id="exit-btn" class="btn btn-secondary">퇴장</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/words.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/balloon.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

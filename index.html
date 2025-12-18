@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자 포털 - Typing Hub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f2f5;
+            margin: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+            border-radius: 16px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.1);
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .balloon {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+        }
+
+        .typing {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎮 타자 포털</h1>
+        <div class="menu-list">
+            <a href="/balloon-typing-game/" class="menu-item balloon" target="_blank">
+                <span class="menu-icon">🎈</span> 풍선 타자 게임
+            </a>
+            <a href="/typing-practice/" class="menu-item typing" target="_blank">
+                <span class="menu-icon">⌨️</span> 타자 연습
+            </a>
+        </div>
+        <div class="footer">
+            © leesk1283 - GitHub Repository
+        </div>
+    </div>
+</body>
+
+</html>

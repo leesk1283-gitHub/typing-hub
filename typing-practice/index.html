@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="한글/영문 타자 연습 프로그램 - 자리 연습, 낱말 연습, 단문 연습">
+    <meta name="keywords" content="타자연습, 타이핑, 한글타자, 영어타자, 키보드연습">
+    <title>타자 연습</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- 헤더 / 네비게이션 -->
+        <header class="header">
+            <div class="logo">⌨️ 타자 연습</div>
+
+            <nav class="nav-menu">
+                <div class="menu-item active" data-mode="position">
+                    자리연습
+                    <div class="submenu">
+                        <div class="submenu-item" data-position="basic">기본자리</div>
+                        <div class="submenu-item" data-position="upper">윗자리</div>
+                        <div class="submenu-item" data-position="middle">가운데자리</div>
+                        <div class="submenu-item" data-position="lower">아랫자리</div>
+                    </div>
+                </div>
+                <div class="menu-item" data-mode="word">낱말연습</div>
+                <div class="menu-item" data-mode="sentence">단문연습</div>
+            </nav>
+
+            <button class="lang-toggle" id="lang-toggle">한글</button>
+        </header>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="main-content">
+            <!-- 좌측 패널 -->
+            <aside class="left-panel">
+                <div class="panel-card title-card">
+                    <h1 id="practice-title">기본자리</h1>
+                </div>
+
+                <div class="panel-card stats-card">
+                    <div id="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-label">시간</div>
+                            <div class="stat-value" id="time-display">00:00</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">정확도</div>
+                            <div class="stat-value" id="accuracy-display">100%</div>
+                            <div class="stat-sub" id="error-count">오타: 0</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 우측 패널 -->
+            <section class="right-panel">
+                <div class="panel-card" id="right-top">
+                    <div class="current-char-container">
+                        <div class="current-char" id="current-char">ㅁ</div>
+                    </div>
+                </div>
+
+                <div class="panel-card keyboard-area">
+                    <div id="keyboard-container"></div>
+                    <div id="hand-container"></div>
+                </div>
+
+                <!-- 카운트다운 오버레이 -->
+                <div id="countdown-overlay" style="display: none;">
+                    <div id="countdown-number">3</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+
+    <!-- 스크립트 -->
+    <script src="js/data.js"></script>
+    <script src="js/keyboard.js"></script>
+    <script src="js/position.js"></script>
+    <script src="js/word.js"></script>
+    <script src="js/sentence.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

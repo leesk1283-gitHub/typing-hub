@@ -1,0 +1,734 @@
+/* 타자 연습 애플리케이션 스타일시트 */
+
+/* CSS 변수 정의 */
+:root {
+    /* 색상 팔레트 */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-card: rgba(30, 41, 59, 0.8);
+
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+
+    --accent-primary: #3b82f6;
+    --accent-secondary: #8b5cf6;
+    --accent-success: #4ade80;
+    --accent-warning: #fbbf24;
+    --accent-error: #f87171;
+
+    --key-default: #374151;
+    --key-highlighted: #1e40af;
+    --key-current: #16a34a;
+    --key-border: #4b5563;
+
+    /* 그림자 */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
+
+    /* 애니메이션 */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* 크기 */
+    --header-height: 60px;
+    --border-radius: 12px;
+}
+
+/* 기본 스타일 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+/* 메인 컨테이너 */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1a2e 50%, var(--bg-primary) 100%);
+}
+
+/* 헤더 / 네비게이션 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    height: var(--header-height);
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 8px;
+}
+
+.menu-item {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.menu-item:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.menu-item.active {
+    background: var(--accent-primary);
+    color: white;
+}
+
+/* 서브메뉴 */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.submenu-item {
+    padding: 12px 16px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.submenu-item:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* 언어 토글 버튼 */
+.lang-toggle {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--key-border);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.lang-toggle:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+/* 메인 콘텐츠 영역 */
+.main-content {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+    overflow: hidden;
+}
+
+/* 좌측 패널 */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 20px;
+}
+
+.panel-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px;
+    box-shadow: var(--shadow-md);
+}
+
+/* 연습 제목 카드 */
+.title-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+#practice-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.practice-main-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-success));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.practice-sub-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+/* 통계 카드 */
+.stats-card {
+    flex: 1;
+}
+
+#stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    padding: 16px 12px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-success);
+}
+
+.stat-sub {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* 우측 패널 */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    position: relative;
+}
+
+/* 우측 상단 패널 (높이 고정) */
+#right-top {
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 현재 글자 표시 (자리 연습) */
+.current-char-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.current-char {
+    font-size: 8rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+    animation: pulse 1.5s ease-in-out infinite;
+    transition: var(--transition-fast);
+}
+
+.current-char.wrong,
+.target-text.wrong-shake {
+    color: var(--accent-error);
+    text-shadow: 0 0 40px rgba(248, 113, 113, 0.8);
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(10px);
+    }
+
+    60% {
+        transform: translateX(-10px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+/* 텍스트 연습 컨테이너 (낱말/단문) */
+.text-practice-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.target-text {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 16px;
+    line-height: 1.6;
+    word-break: keep-all;
+}
+
+.target-text span {
+    transition: var(--transition-fast);
+}
+
+.target-text span.correct {
+    color: var(--accent-success);
+}
+
+.target-text span.incorrect {
+    color: var(--accent-error);
+    text-decoration: underline;
+}
+
+.target-text span.current {
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 4px;
+    padding: 0 4px;
+}
+
+.input-text {
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 16px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    min-height: 60px;
+    border: 2px solid transparent;
+    transition: var(--transition-fast);
+}
+
+.input-text:focus-within {
+    border-color: var(--accent-primary);
+}
+
+.next-text {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-muted);
+    opacity: 0.5;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 키보드 영역 */
+.keyboard-area {
+    position: relative;
+    flex: 1.2;
+}
+
+#keyboard-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 6px;
+}
+
+.keyboard-row.row-0 {
+    margin-left: 0;
+}
+
+.keyboard-row.row-1 {
+    margin-left: 20px;
+}
+
+.keyboard-row.row-2 {
+    margin-left: 40px;
+}
+
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--key-default);
+    border: 1px solid var(--key-border);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.key:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.key.space-key {
+    width: 300px;
+}
+
+.key.highlighted {
+    background: var(--key-highlighted);
+    border-color: #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+.key.current {
+    background: var(--key-current);
+    border-color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.7);
+    transform: translateY(-2px);
+    animation: keyPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes keyPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(34, 197, 94, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(34, 197, 94, 0.9);
+    }
+}
+
+.key.wrong {
+    background: #dc2626;
+    border-color: #ef4444;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.7);
+    animation: keyWrong 0.3s ease-in-out;
+}
+
+@keyframes keyWrong {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-3px) rotate(-2deg);
+    }
+
+    75% {
+        transform: translateY(-3px) rotate(2deg);
+    }
+}
+
+/* 손가락 색상 */
+.key.finger-0 {
+    border-bottom-color: #ef4444;
+}
+
+.key.finger-1 {
+    border-bottom-color: #f97316;
+}
+
+.key.finger-2 {
+    border-bottom-color: #eab308;
+}
+
+.key.finger-3,
+.key.finger-6 {
+    border-bottom-color: #22c55e;
+}
+
+.key.finger-7 {
+    border-bottom-color: #14b8a6;
+}
+
+.key.finger-8 {
+    border-bottom-color: #3b82f6;
+}
+
+.key.finger-9 {
+    border-bottom-color: #8b5cf6;
+}
+
+/* 특수 키 크기 */
+.key-backspace {
+    width: 80px;
+    font-size: 0.75rem;
+}
+
+.key-tab {
+    width: 65px;
+    font-size: 0.75rem;
+}
+
+.key-caps {
+    width: 75px;
+    font-size: 0.75rem;
+}
+
+.key-enter {
+    width: 85px;
+    font-size: 0.75rem;
+}
+
+.key-shift {
+    width: 100px;
+    font-size: 0.75rem;
+}
+
+.key-space {
+    width: 280px;
+}
+
+.key-modifier {
+    width: 55px;
+    font-size: 0.7rem;
+}
+
+/* 키보드 행 오프셋 제거 (전체 키보드이므로) */
+.keyboard-row.row-0,
+.keyboard-row.row-1,
+.keyboard-row.row-2,
+.keyboard-row.row-3,
+.keyboard-row.row-4 {
+    margin-left: 0;
+}
+
+/* 손 이미지 컨테이너 */
+#hand-container {
+    position: absolute;
+    top: 50%;
+    margin-top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    pointer-events: none;
+    z-index: 100;
+    overflow: visible;
+}
+
+.hands-container {
+    display: flex;
+    gap: 0;
+    align-items: flex-end;
+}
+
+.hand-svg {
+    opacity: 0.85;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: var(--transition-fast);
+}
+
+.hand-svg.left-hand {
+    margin-right: -20px;
+}
+
+.hand-svg.right-hand {
+    margin-left: -20px;
+}
+
+/* 카운트다운 오버레이 */
+#countdown-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#countdown-number {
+    font-size: 10rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    text-shadow: 0 0 60px rgba(59, 130, 246, 0.8);
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+#countdown-number.pulse {
+    animation: countdownPulse 0.9s ease-in-out;
+}
+
+@keyframes countdownPulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    80% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1200px) {
+    .left-panel {
+        width: 250px;
+    }
+
+    .key {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    .key.space-key {
+        width: 250px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .title-card,
+    .stats-card {
+        flex: 1;
+    }
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* 포커스 스타일 */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
