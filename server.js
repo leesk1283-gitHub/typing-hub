@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 app.use('/typing-practice', express.static(path.join(__dirname, 'typing-practice')));
 
 // 3. 풍선 타자 게임
-app.use('/balloon-typing-game', express.static(path.join(__dirname, 'balloon-typing-game/public')));
+app.use('/balloon-typing-game', express.static(path.join(__dirname, 'balloon-typing-game')));
 app.get('/balloon-typing-game', (req, res) => {
     res.redirect('/balloon-typing-game/');
 });

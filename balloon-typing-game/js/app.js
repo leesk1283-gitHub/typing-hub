@@ -2,7 +2,8 @@
 class SocketClient {
     constructor() {
         // 서브 경로에 맞게 path 설정
-        this.socket = io({
+        // Render에 배포된 백엔드 URL로 연결
+        this.socket = io('https://typing-hub-multiplayer.onrender.com', {
             path: '/balloon-typing-game/socket.io'
         });
         this.userName = '';

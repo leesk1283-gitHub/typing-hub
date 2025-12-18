@@ -57,7 +57,7 @@ Typing Hub는 웹 브라우저에서 즐길 수 있는 **타자 연습 서비스
 
 본 프로젝트는 정적 포털(GitHub Pages)과 동적 게임 서버(Render)로 나누어 배포하도록 설계되었습니다.
 
-- **포털 & 타자연습**: <a href="https://leesk1283-github.github.io/typing-hub/" target="_blank" rel="noopener noreferrer">GitHub Pages 바로가기</a>
+- **포털 & 타자연습**: <a href="https://leesk1283-github.github.io/typing-hub/" target="_blank" rel="noopener noreferrer">GitHub Pages 바로가기</a> (새 탭에서 열리지 않을 경우 `Ctrl+클릭` 또는 `우클릭 > 새 탭에서 열기`를 사용해 주세요.)
 - **멀티플레이어 서버**: <a href="https://render.com" target="_blank" rel="noopener noreferrer">Render 바로가기</a>
 
 ## 📄 라이선스
