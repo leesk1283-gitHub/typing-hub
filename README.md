@@ -25,13 +25,13 @@ Typing Hub는 웹 브라우저에서 즐길 수 있는 **타자 연습 서비스
 - **Frontend**: HTML5, CSS3 (Vanilla CSS), JavaScript (ES6+)
 - **Backend**: Node.js, Express
 - **Real-time**: Socket.io
-- **Deployment**: Render / Railway (Recommended)
+- **Deployment**: <a href="https://render.com" target="_blank">Render</a> / <a href="https://leesk1283-github.github.io/typing-hub/" target="_blank">GitHub Pages</a>
 
 ## 📦 설치 및 로컬 실행 방법
 
 1. 저장소를 클론합니다:
    ```bash
-   git clone https://github.com/leesk1283/typing-hub.git
+   git clone https://github.com/leesk1283-github/typing-hub.git
    cd typing-hub
    ```
 
@@ -53,16 +53,14 @@ Typing Hub는 웹 브라우저에서 즐길 수 있는 **타자 연습 서비스
 
 ## 🌐 배포 안내 (Deployment)
 
-본 프로젝트는 Node.js 서버와 WebSocket(Socket.io)을 사용하므로, 이를 지원하는 플랫폼(Render, Railway 등)에 배포하는 것이 좋습니다.
+본 프로젝트는 정적 포털(GitHub Pages)과 동적 게임 서버(Render)로 나누어 배포하도록 설계되었습니다.
 
-### Render.com 배포 기준:
-- **Build Command**: `npm install`
-- **Start Command**: `npm start`
-- **Environment**: `PORT` 환경 변수는 자동으로 할당됩니다.
+- **포털 & 타자연습**: <a href="https://leesk1283-github.github.io/typing-hub/" target="_blank">GitHub Pages 바로가기</a>
+- **멀티플레이어 서버**: <a href="https://render.com" target="_blank">Render 바로가기</a>
 
 ## 📄 라이선스
 
 이 프로젝트는 [MIT License](LICENSE)에 따라 배포됩니다. 자유롭게 수정 및 배포가 가능합니다.
 
 ---
-Created by [leesk1283-github](https://github.com/leesk1283-github)
+Created by <a href="https://github.com/leesk1283-github" target="_blank">leesk1283-github</a>
