@@ -31,7 +31,7 @@ Typing Hub는 웹 브라우저에서 즐길 수 있는 **타자 연습 서비스
 
 ## 📄 라이선스
 
-이 프로젝트는 [MIT License](LICENSE)에 따라 배포됩니다. 자유롭게 수정 및 배포가 가능합니다.
+이 프로젝트는 [MIT License](LICENSE)에 따라 배포됩니다.
 
 ---
 Created by <a href="https://github.com/leesk1283-github" target="_blank" rel="noopener noreferrer">leesk1283-github</a>
