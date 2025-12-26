@@ -1475,61 +1475,120 @@ input:checked+.toggle-slider:before {
 
 @media (max-width: 768px) {
     .game-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .lobby-header {
+        padding: 20px 15px;
     }
 
     .lobby-actions {
         flex-direction: column;
+        gap: 12px;
     }
 
-    .players-container {
-        flex-direction: column;
-    }
-
-    .player-card {
-        max-width: 100%;
-    }
-
-    .vs-divider {
-        transform: rotate(90deg);
-    }
-
+    /* 게임 헤더 영역 축소 (가장 중요) */
     .game-header {
-        padding: 15px 20px;
+        padding: 8px 15px;
+        gap: 10px;
     }
 
-    .player-score {
-        min-width: auto;
+    /* 점수판 컨테이너 높이 축소 */
+    .score-grid {
+        gap: 6px;
+        padding: 5px;
     }
 
-    .score-value {
-        font-size: 1.5rem;
+    /* 점수 아이템 크기 축소 */
+    .score-item {
+        min-width: 75px;
+        padding: 4px 8px;
+        border-radius: 8px;
     }
 
-    .timer-circle {
-        width: 60px;
-        height: 60px;
+    .score-item:hover {
+        transform: none;
+        /* 모바일은 호버 효과 제거 */
+    }
+
+    /* 닉네임 뱃지 크기 축소 */
+    .score-item .name-tag {
+        padding: 1px 8px;
+        margin: 2px auto 4px;
+        max-width: 90px;
+        border-radius: 6px;
+    }
+
+    .score-item .player-nickname {
+        font-size: 0.85rem;
+        max-width: 65px;
+        letter-spacing: 0.5px;
+    }
+
+    /* 점수 텍스트 크기 축소 */
+    .score-item .player-score {
+        font-size: 1.25rem;
+        letter-spacing: -0.5px;
+        margin-top: -2px;
+    }
+
+    /* 타이머 영역 축소 */
+    .timer-container {
+        gap: 5px;
+    }
+
+    .timer-icon {
+        font-size: 1.2rem;
     }
 
     #timer-display {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
+    .timer-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* 입력창 영역 패딩 축소 */
+    .input-area {
+        padding: 12px 20px;
+        gap: 4px;
+    }
+
+    .word-input {
+        padding: 10px 15px;
+        font-size: 1.1rem;
+    }
+
+    .input-hint {
+        font-size: 0.7rem;
+    }
+
+    /* 풍선 크기 및 텍스트 모바일 조정 */
     .balloon-body {
-        width: 80px;
-        height: 96px;
+        width: 70px;
+        height: 84px;
     }
 
     .balloon-word {
         font-size: 0.75rem;
     }
 
+    /* 결과창 모바일 최적화 */
     .result-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
+        padding: 10px;
     }
 
     .result-vs {
         transform: rotate(90deg);
+        margin: 5px 0;
+    }
+
+    .result-modal {
+        padding: 20px;
+        width: 95%;
     }
 }
