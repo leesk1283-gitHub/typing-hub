@@ -452,4 +452,38 @@ const App = {
 // DOM 로드 완료 후 앱 초기화
 document.addEventListener('DOMContentLoaded', () => {
     App.init();
+
+    // 모바일 소프트 키보드 대응: 게임 헤더 고정
+    const gameHeader = document.querySelector('.game-header');
+    const wordInput = document.getElementById('word-input');
+
+    if (gameHeader && wordInput && window.visualViewport) {
+        // Visual Viewport API 사용
+        window.visualViewport.addEventListener('resize', () => {
+            const gameScreen = document.getElementById('game-screen');
+            if (gameScreen && gameScreen.classList.contains('active')) {
+                // 키보드가 올라오면 viewport 높이가 줄어듦
+                const offsetTop = window.visualViewport.offsetTop;
+                gameHeader.style.transform = `translateY(${offsetTop}px)`;
+            }
+        });
+
+        window.visualViewport.addEventListener('scroll', () => {
+            const gameScreen = document.getElementById('game-screen');
+            if (gameScreen && gameScreen.classList.contains('active')) {
+                const offsetTop = window.visualViewport.offsetTop;
+                gameHeader.style.transform = `translateY(${offsetTop}px)`;
+            }
+        });
+    }
+
+    // 입력창 포커스 시 스크롤 방지 (모바일)
+    if (wordInput) {
+        wordInput.addEventListener('focus', () => {
+            // 약간의 지연 후 스크롤 위치 조정
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 100);
+        });
+    }
 });
