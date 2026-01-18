@@ -682,10 +682,12 @@ input:checked+.toggle-slider:before {
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(10px);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
 }
 
@@ -767,6 +769,8 @@ input:checked+.toggle-slider:before {
     position: relative;
     overflow: hidden;
     background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+    margin-top: 80px;
+    /* 헤더 높이만큼 여백 */
 }
 
 .input-area {
@@ -1595,6 +1599,12 @@ input:checked+.toggle-slider:before {
         width: 95%;
     }
 
+    /* 모바일 body 스크롤 허용 */
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     /* 모바일 스크롤 지원 - 로비/대기방만 */
     #lobby-screen,
     #waiting-screen,
@@ -1604,8 +1614,24 @@ input:checked+.toggle-slider:before {
         overflow-y: auto;
     }
 
+    /* 게임 화면은 스크롤 방지 */
+    #game-screen {
+        height: 100vh;
+        overflow: hidden;
+    }
+
     .lobby-container,
     .glass-panel {
         padding-bottom: 30px;
+    }
+
+    /* 모바일 게임 헤더 */
+    .game-header {
+        padding: 8px 15px;
+    }
+
+    .game-area {
+        margin-top: 50px;
+        /* 모바일 헤더 높이 */
     }
 }
