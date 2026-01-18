@@ -1594,4 +1594,18 @@ input:checked+.toggle-slider:before {
         padding: 20px;
         width: 95%;
     }
+
+    /* 모바일 스크롤 지원 - 로비/대기방만 */
+    #lobby-screen,
+    #waiting-screen,
+    #login-screen {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .lobby-container,
+    .glass-panel {
+        padding-bottom: 30px;
+    }
 }
