@@ -277,7 +277,7 @@ io.on('connection', (socket) => {
 
         io.to(user.roomId).emit('game-start', {
             balloons: room.balloons,
-            duration: 30000
+            duration: 60000
         });
 
         setTimeout(() => {
@@ -296,7 +296,7 @@ io.on('connection', (socket) => {
                             players: room.players
                         });
                     }
-                }, 31000);
+                }, 61000); // 60초 게임 + 1초 버퍼
             }
         }, 3500);
 

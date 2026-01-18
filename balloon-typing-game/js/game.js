@@ -82,7 +82,7 @@ class Game {
         // 카운트다운 시작 (3초 후 게임 로직 실행)
         this.showCountdown(() => {
             this.isPlaying = true;
-            this.timeRemaining = 30;
+            this.timeRemaining = MAX_TIME;
             this.updateScores({ host: 0, guest: 0 }); // 초기화
             this.hideResults();
 
