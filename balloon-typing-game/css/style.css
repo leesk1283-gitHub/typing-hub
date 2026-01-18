@@ -1480,7 +1480,7 @@ input:checked+.toggle-slider:before {
    반응형
    ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .game-title {
         font-size: 1.8rem;
     }
