@@ -1,9 +1,11 @@
+const MAX_TIME = 60;
+
 // 게임 로직 클래스
 class Game {
     constructor() {
         this.balloonManager = null;
         this.isPlaying = false;
-        this.timeRemaining = 30;
+        this.timeRemaining = MAX_TIME;
         this.timerInterval = null;
         this.lastUpdate = 0;
         this.animationFrame = null;
@@ -335,7 +337,7 @@ class Game {
     // 게임 초기화
     reset() {
         this.isPlaying = false;
-        this.timeRemaining = 30;
+        this.timeRemaining = MAX_TIME;
         this.stopTimer();
 
         // BGM 정지
@@ -351,7 +353,7 @@ class Game {
         this.balloonManager.clear();
         this.wordInput.value = '';
         this.updateScores({ host: 0, guest: 0 });
-        this.timerDisplay.textContent = '30';
+        this.timerDisplay.textContent = `${MAX_TIME}`;
         this.hideResults();
     }
 }
