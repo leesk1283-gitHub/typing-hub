@@ -1508,16 +1508,17 @@ input:checked+.toggle-slider:before {
 
     /* 점수 아이템 - 가로 배치 (닉네임 | 점수) */
     .score-item {
-        min-width: auto;
-        padding: 4px 10px;
-        border-radius: 8px;
-        flex-direction: row;
-        align-items: center;
-        gap: 6px;
+        min-width: auto !important;
+        padding: 4px 10px !important;
+        border-radius: 8px !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 6px !important;
+        text-align: left !important;
     }
 
     .score-item:hover {
-        transform: none;
+        transform: none !important;
     }
 
     /* 닉네임 백지 - 인라인 스타일 */
@@ -1552,30 +1553,28 @@ input:checked+.toggle-slider:before {
 
     /* 타이머 - 가로 배치 (아이콘 | 시간) */
     .timer-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 4px;
-        background: rgba(239, 68, 68, 0.2);
-        padding: 4px 8px;
-        border-radius: 8px;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 4px !important;
+        background: rgba(239, 68, 68, 0.2) !important;
+        padding: 4px 8px !important;
+        border-radius: 8px !important;
     }
 
     .timer-icon {
-        font-size: 1rem;
+        font-size: 1rem !important;
     }
 
     #timer-display {
-        font-size: 1rem;
-        font-weight: 700;
-        min-width: 2ch;
-        /* 고정 너비: 2자리 숫자 기준 */
-        text-align: center;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+        min-width: 2ch !important;
+        text-align: center !important;
     }
 
     .timer-circle {
-        display: none;
-        /* 모바일에서 동그라미 숨기고 간단히 표시 */
+        display: none !important;
     }
 
     /* 입력창 영역 패딩 축소 */
