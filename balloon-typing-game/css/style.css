@@ -1506,55 +1506,76 @@ input:checked+.toggle-slider:before {
         padding: 5px;
     }
 
-    /* 점수 아이템 크기 축소 */
+    /* 점수 아이템 - 가로 배치 (닉네임 | 점수) */
     .score-item {
-        min-width: 75px;
-        padding: 4px 8px;
+        min-width: auto;
+        padding: 4px 10px;
         border-radius: 8px;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
     }
 
     .score-item:hover {
         transform: none;
-        /* 모바일은 호버 효과 제거 */
     }
 
-    /* 닉네임 뱃지 크기 축소 */
+    /* 닉네임 백지 - 인라인 스타일 */
     .score-item .name-tag {
-        padding: 1px 8px;
-        margin: 2px auto 4px;
-        max-width: 90px;
-        border-radius: 6px;
+        padding: 2px 8px;
+        margin: 0;
+        max-width: 70px;
+        border-radius: 4px;
     }
 
     .score-item .player-nickname {
-        font-size: 0.85rem;
-        max-width: 65px;
-        letter-spacing: 0.5px;
+        font-size: 0.75rem;
+        max-width: 55px;
+        letter-spacing: 0;
     }
 
-    /* 점수 텍스트 크기 축소 */
+    /* 점수 - 인라인 스타일 */
     .score-item .player-score {
-        font-size: 1.25rem;
-        letter-spacing: -0.5px;
-        margin-top: -2px;
+        font-size: 0.9rem;
+        letter-spacing: 0;
+        margin-top: 0;
+        min-width: 30px;
+        text-align: right;
     }
 
-    /* 타이머 영역 축소 */
+    /* 순위 뱃지 위치 조정 */
+    .score-item .rank-badge {
+        position: static;
+        font-size: 0.8rem;
+        margin-right: 2px;
+    }
+
+    /* 타이머 - 가로 배치 (아이콘 | 시간) */
     .timer-container {
-        gap: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+        background: rgba(239, 68, 68, 0.2);
+        padding: 4px 8px;
+        border-radius: 8px;
     }
 
     .timer-icon {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     #timer-display {
-        font-size: 1.3rem;
+        font-size: 1rem;
+        font-weight: 700;
+        min-width: 2ch;
+        /* 고정 너비: 2자리 숫자 기준 */
+        text-align: center;
     }
 
     .timer-circle {
-        width: 50px;
-        height: 50px;
+        display: none;
+        /* 모바일에서 동그라미 숨기고 간단히 표시 */
     }
 
     /* 입력창 영역 패딩 축소 */
